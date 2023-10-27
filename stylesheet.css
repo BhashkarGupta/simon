@@ -1,0 +1,162 @@
+body{
+    background-color: #011F3F;;
+    text-align: center;
+}
+
+h1#gameTitle {
+    font-family: 'Press Start 2P', cursive;
+    color: #e6005c;
+    margin-bottom: 80px;
+    font-size: clamp(35px, 3vw, 200px);
+    padding: 5px;
+}
+
+.main {
+    margin: 100px 5px;
+    min-width: 590px;
+}
+
+.box {
+    height: 200px;
+    width: 200px;
+    border: 15px rgb(220, 220, 220) solid;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 25px;
+    box-shadow: 0 0 20px rgba(220, 220, 220, 0.64);
+}
+
+#box-1 {
+    background-color: red;
+}
+
+#box-3 {
+    background-color: blue;
+}
+
+#box-2 {
+    background-color: yellow;
+}
+
+#box-4 {
+    background-color: green ;
+}
+
+#box-1:hover{
+    box-shadow: 0 0 80px rgba(255, 0, 0, 0.897);
+}
+
+#box-3:hover {
+    box-shadow: 0 0 90px rgba(0, 4, 255, 0.897);
+}
+
+#box-2:hover {
+    box-shadow: 0 0 70px rgba(255, 230, 0, 0.897);
+}
+
+#box-4:hover {
+    box-shadow: 0 0 70px rgba(21, 255, 0, 0.897);
+}
+
+.box-1-glow {
+    box-shadow: 0 0 80px rgba(255, 0, 0, 0.897);
+}
+
+.box-3-glow {
+    box-shadow: 0 0 90px rgba(0, 4, 255, 0.897);
+}
+
+.box-2-glow {
+    box-shadow: 0 0 70px rgba(255, 230, 0, 0.897);
+}
+
+.box-4-glow {
+    box-shadow: 0 0 70px rgba(21, 255, 0, 0.897);
+}
+
+.button-section {
+    margin: 60px 0px;;
+}
+
+.button {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #011F3F;
+    background: #e6005c;
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(230, 0, 92, 0.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 16px 20px;
+}
+
+.button::before {
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(100% + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #e6005c;
+    box-shadow: 0 0 60px rgba(230, 0, 92, 0.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.button:hover,
+.button:focus {
+    color: #011F3F;
+    transform: translateY(-6px);
+}
+
+button:hover::before,
+button:focus::before {
+    opacity: 1;
+}
+
+button:hover::after,
+button:focus::after {
+    animation: none;
+    display: none;
+}
+
+.reset {
+    font-family: 'Nunito', sans-serif;
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: 1.3px;
+        font-weight: 700;
+        color: #011F3F;
+        background: red;
+        border: 2px solid red;
+        border-radius: 1000px;
+        box-shadow: 12px 12px 24px rgba(230, 0, 0, 0.64);
+        transition: all 0.3s ease-in-out 0s;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+        padding: 16px 20px;
+}
+
+.reset::before {
+    content: '';
+        border-radius: 1000px;
+        min-width: calc(100% + 12px);
+        min-height: calc(60px + 12px);
+        border: 6px solid red;
+        box-shadow: 0 0 60px rgba(230, 0, 92, 0.64);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: all 0.3s ease-in-out 0s;
+}
