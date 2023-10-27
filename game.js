@@ -1,3 +1,5 @@
+alert("Simon is a memory game where you follow and repeat a sequence of colors and sounds. Start the game, watch the pattern, and then copy it. The sequence gets longer as you progress. Make a mistake, and the game ends. Try to achieve the highest score by remembering the longest sequence!");
+
 function cubeSelector(){
     var ranNumber = (Math.random()*4) + 1;
     return Math.floor(ranNumber);
