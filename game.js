@@ -17,15 +17,6 @@ function triggerBox(boxID) {
     }, 600);
 }
 
-function getClickedBox() {
-    document.querySelectorAll(".box").forEach(function (box) {
-        box.addEventListener("click", function (event) {
-            var resut = event.target.id.replace("box-", "");
-            return resut;
-        });
-    });
-}
-
 function reset() {
     location.reload();
 }
@@ -40,34 +31,37 @@ function game() {
     function boxClickHandler(event) {
         var result = event.target.id.replace("box-", "");
         console.log(result, cubeSequence[counter]);
+        triggerBox(result);
 
-        if (result == cubeSequence[counter]) {
-            console.log("correct");
-            counter++;
-            console.log(counter, level);
+        setTimeout(function(){
+            if (result == cubeSequence[counter]) {
+                console.log("correct");
+                counter++;
+                console.log(counter, level);
 
-            if (counter == level) {
-                cubeSequence.push(cubeSelector());
-                triggerBox(cubeSequence[level]);
-                level++;
-                heading.innerHTML = "Level: " + level;
-                console.log("level:" + level);
-                console.log(cubeSequence);
-                counter = 0;
+                if (counter == level) {
+                    cubeSequence.push(cubeSelector());
+                    triggerBox(cubeSequence[level]);
+                    level++;
+                    heading.innerHTML = "Level: " + level;
+                    console.log("level:" + level);
+                    console.log(cubeSequence);
+                    counter = 0;
+                }
+            } else {
+                console.log("game over");
+                playSound("wrong");
+                heading.style.color = "red";
+                heading.innerHTML = "Game Over! </ br>Your Score:" + (level - 1);
+                button.innerHTML = "Reset";
+                button.classList.add("reset");
+                button.classList.remove("button");
+                button.setAttribute("onclick", "reset()");
+                document.querySelectorAll(".box").forEach(function (box) {
+                    box.removeEventListener("click", boxClickHandler);
+                });
             }
-        } else {
-            console.log("game over");
-            playSound("wrong");
-            heading.style.color = "red";
-            heading.innerHTML = "Game Over! </ br>Your Score:" + (level - 1);
-            button.innerHTML = "Reset";
-            button.classList.add("reset");
-            button.classList.remove("button");
-            button.setAttribute("onclick", "reset()");
-            document.querySelectorAll(".box").forEach(function (box) {
-                box.removeEventListener("click", boxClickHandler);
-            });
-        }
+        }, 600);
     }
 
     cubeSequence.push(cubeSelector());
